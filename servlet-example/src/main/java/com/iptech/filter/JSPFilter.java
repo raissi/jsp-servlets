@@ -5,18 +5,19 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class JSPFilter implements Filter{
 
+	private ServletContext context;
+
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		// TODO Auto-generated method stub
-		
+		context = filterConfig.getServletContext();
 	}
 
 	@Override
@@ -24,7 +25,7 @@ public class JSPFilter implements Filter{
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		System.out.println(httpServletRequest.getRemoteHost()+" tryed to access: "+httpServletRequest.getRequestURL());
-		
+		context.log(httpServletRequest.getRemoteHost()+" tryed to access: "+httpServletRequest.getRequestURL());
 		chain.doFilter(request, response);
 		
 	}
