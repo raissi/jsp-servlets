@@ -10,11 +10,15 @@
 	<filter-class>
 		com.iptech.filter.JSPFilter
 	</filter-class>
+	<init-param>
+		<param-name>test</param-name>
+		<param-value>Some test data</param-value>
+	</init-param>
   </filter>
   
 	<filter-mapping>
-	<filter-name>Reporter</filter-name>
-	<url-pattern>/*</url-pattern>
+		<filter-name>Reporter</filter-name>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>
   
   	

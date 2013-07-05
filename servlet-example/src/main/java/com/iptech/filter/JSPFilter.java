@@ -18,6 +18,7 @@ public class JSPFilter implements Filter{
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		context = filterConfig.getServletContext();
+		context.log("Init param test := "+filterConfig.getInitParameter("test"));
 	}
 
 	@Override
